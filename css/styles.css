@@ -4,7 +4,8 @@
   --accent-color: #2196f3;
   --caption-text-color: #212121;
   --title-background-color: #2f303a;
-  --primary-white-color: #f5f5f5;
+  --btn-hover-bgcolor: #188ce8;
+
   /*наша команда*/
   --section-backgraund-color: #ffffff;
   --footer-contact-color: rgba(255, 255, 255, 0.6);
@@ -12,11 +13,10 @@
 }
 body {
   font-family: "Roboto", sans-serif;
-  background-color: var(--primary-white-color);
-}
-.body {
+  color: var(--primary-text-color);
   background-color: var(--section-backgraund-color);
 }
+
 .link {
   text-decoration: none;
 }
@@ -33,7 +33,7 @@ body {
   color: var(--title-text-color);
 }
 .logo-accent {
-  font-family: "Raleway";
+  font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 26px;
@@ -53,7 +53,8 @@ body {
 .header-link:focus {
   color: var(--accent-color);
 }
-.header-contact a {
+.contact-mail,
+.contact-tel {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -61,9 +62,12 @@ body {
   color: var(--primary-text-color);
   text-decoration: none;
 }
-.header-mail:hover,
-.header-mail:focus {
+.contact-mail:hover,
+.contact-mail:focus {
   color: var(--accent-color);
+}
+.section-hero {
+  background-color: var(--title-background-color);
 }
 .headline {
   font-weight: 900;
@@ -72,17 +76,25 @@ body {
   text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--primary-white-color);
-  background-color: var(--title-background-color);
+  color: var(--section-backgraund-color);
 }
 
 .btn {
-  font-family: "Roboto";
+  font-family: inherit;
+  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.88;
-  color: var(--primary-white-color);
+  letter-spacing: 0.06em;
+  color: var(--section-backgraund-color);
   background-color: var(--accent-color);
+  cursor: pointer;
+}
+.btn:hover,
+.btn:focus {
+  background-color: var(--btn-hover-bgcolor);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
 }
 .filter-btn {
   font-family: inherit;
@@ -94,12 +106,26 @@ body {
   letter-spacing: 0.03em;
   color: var(--caption-text-color);
   background-color: var(--filter-bg-color);
+  cursor: pointer;
 }
 .filter-btn:hover,
 .filter-btn:focus {
-  color: var(--primary-white-color);
+  color: var(--section-backgraund-color);
   background-color: var(--accent-color);
 }
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
 .project-title {
   visibility: hidden;
 }
@@ -112,13 +138,20 @@ body {
   color: var(--caption-text-color);
 }
 .text {
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
 }
-.caption {
+.middle-section {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--caption-text-color);
+}
+.team-title {
   font-weight: 700;
   font-size: 36px;
   line-height: 1.17;
@@ -126,16 +159,29 @@ body {
   letter-spacing: 0.03em;
   color: var(--caption-text-color);
 }
-.section {
-  font-weight: 400;
+.team-section {
+  text-align: center;
+  background-color: var(--filter-bg-color);
+}
+.team-list {
+  background-color: var(--section-backgraund-color);
+}
+.team-subtitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--caption-text-color);
+}
+.team-text {
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
-  background-color: var(--section-backgraund-color);
 }
-project-title {
+.project-link {
   text-decoration: none;
 }
 .project-caption {
@@ -145,28 +191,23 @@ project-title {
   letter-spacing: 0.06em;
   color: var(--caption-text-color);
   /*не розумію чому не працює*/
-  text-decoration: none;
 }
 .project-text {
-  font-weight: 400;
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
   /*не розумію чому не працює*/
-  text-decoration: none;
 }
 .footer {
   background-color: var(--title-background-color);
 }
 .map {
-  font-family: "Roboto";
   font-style: normal;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
-  color: var(--primary-white-color);
+  color: var(--section-backgraund-color);
   text-decoration: none;
 }
 .map:hover,
@@ -174,9 +215,7 @@ project-title {
   color: var(--accent-color);
 }
 .footer-contact {
-  font-family: "Roboto";
   font-style: normal;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
@@ -194,5 +233,8 @@ project-title {
   font-size: 26px;
   line-height: 1.19;
   letter-spacing: 0.03em;
-  color: var(--primary-white-color);
+  color: var(--section-backgraund-color);
+}
+.current {
+  color: var(--accent-color);
 }
